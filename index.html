@@ -1,1 +1,353 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elextra Komputer - Pusat Komputer Terpercaya di Makassar</title>
+    <meta name="description" content="Toko komputer terlengkap di Makassar. Rating 4.5/5.0. Laptop, PC, Rakitan, dan Service. Lokasi: Panakukang Mas.">
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Icons: Lucide (Lightweight, clean) -->
+    <script src="https://unpkg.com/lucide@latest"></script>
 
+    <!-- Tailwind CSS (Configured via script for custom colors) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            dark: '#0F172A', // Deep Tech Blue
+                            primary: '#3B82F6', // Electric Blue
+                            accent: '#F97316', // Energetic Orange
+                            light: '#F8FAFC', // Background
+                        }
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Utilities for Map & Polish */
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+        
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Glassmorphism utility */
+        .glass {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+        }
+    </style>
+</head>
+<body class="bg-brand-light text-slate-800 font-sans antialiased selection:bg-brand-primary selection:text-white">
+
+    <!-- Header / Sticky Nav -->
+    <header class="fixed w-full top-0 z-50 glass border-b border-slate-200 shadow-sm transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center gap-2 cursor-pointer" onclick="window.scrollTo(0,0)">
+                    <div class="bg-brand-primary text-white p-1.5 rounded-lg">
+                        <i data-lucide="cpu" class="w-6 h-6"></i>
+                    </div>
+                    <span class="font-bold text-2xl tracking-tight text-brand-dark">Elextra</span>
+                </div>
+
+                <!-- Dynamic Status Badge (Desktop & Mobile) -->
+                <div id="status-badge" class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-sm font-medium transition-colors duration-300">
+                    <span id="status-dot" class="w-2.5 h-2.5 rounded-full bg-slate-400"></span>
+                    <span id="status-text" class="uppercase tracking-wide text-slate-500 text-xs sm:text-sm">Memuat...</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 lg:pt-40 lg:pb-28 bg-brand-dark overflow-hidden">
+        <!-- Abstract Background Decoration -->
+        <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 rounded-full bg-brand-primary opacity-10 blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 rounded-full bg-brand-accent opacity-10 blur-3xl"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <!-- Hero Content -->
+                <div class="text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-800/50 border border-slate-700 text-brand-primary text-sm font-medium mb-6">
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <span>Rating 4.5/5.0 dari 198 Review</span>
+                    </div>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight mb-6">
+                        Pusat Komputer <br class="hidden lg:block"/>
+                        <span class="text-brand-primary">Terpercaya</span> di Makassar
+                    </h1>
+                    <p class="text-lg text-slate-300 mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                        Solusi perangkat IT lengkap dengan layanan purna jual terbaik. Laptop, PC rakitan, dan aksesoris original untuk kebutuhan produktivitas Anda.
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                        <a href="https://linktr.ee/elextra" target="_blank" class="inline-flex items-center justify-center gap-2 px-8 py-4 text-base font-bold text-white bg-brand-accent rounded-xl hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-accent focus:ring-offset-brand-dark transition-all shadow-lg shadow-orange-500/20">
+                            <i data-lucide="shopping-bag" class="w-5 h-5"></i>
+                            Belanja Online
+                        </a>
+                        <a href="#location" class="inline-flex items-center justify-center gap-2 px-8 py-4 text-base font-semibold text-white bg-slate-800 border border-slate-700 rounded-xl hover:bg-slate-700 focus:outline-none transition-all">
+                            <i data-lucide="map-pin" class="w-5 h-5"></i>
+                            Kunjungi Toko
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Hero Visual -->
+                <div class="relative hidden lg:block">
+                    <div class="relative rounded-2xl overflow-hidden shadow-2xl border border-slate-700 bg-slate-800 aspect-video group">
+                        <!-- Mockup Store Image Placeholder -->
+                        <div class="absolute inset-0 bg-gradient-to-tr from-brand-dark to-slate-800 flex items-center justify-center">
+                            <div class="text-center">
+                                <i data-lucide="monitor-smartphone" class="w-16 h-16 text-brand-primary mx-auto mb-4 opacity-50"></i>
+                                <p class="text-slate-400 font-medium">Elextra Store Interior</p>
+                            </div>
+                        </div>
+                        <!-- Overlay content -->
+                        <div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent">
+                            <p class="text-white font-medium">Stok Terlengkap & Bergaransi Resmi</p>
+                        </div>
+                    </div>
+                    <!-- Decor element -->
+                    <div class="absolute -z-10 top-4 -right-4 w-full h-full rounded-2xl border-2 border-brand-primary/20"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-brand-dark mb-4">Layanan Unggulan</h2>
+                <p class="text-slate-600 max-w-2xl mx-auto">Kami mengutamakan kepuasan pelanggan dengan pelayanan yang fleksibel dan aman.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="bg-brand-light p-8 rounded-2xl border border-slate-100 hover:border-brand-primary/50 hover:shadow-xl hover:shadow-brand-primary/5 transition-all duration-300 group">
+                    <div class="w-14 h-14 bg-blue-100 text-brand-primary rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i data-lucide="store" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-brand-dark mb-3">Belanja di Toko</h3>
+                    <p class="text-slate-600 leading-relaxed">
+                        Datang dan coba langsung unit demo kami. Konsultasi gratis dengan teknisi berpengalaman untuk rakitan PC.
+                    </p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-brand-light p-8 rounded-2xl border border-slate-100 hover:border-brand-primary/50 hover:shadow-xl hover:shadow-brand-primary/5 transition-all duration-300 group">
+                    <div class="w-14 h-14 bg-orange-100 text-brand-accent rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i data-lucide="package-check" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-brand-dark mb-3">Ambil di Toko (Pickup)</h3>
+                    <p class="text-slate-600 leading-relaxed">
+                        Pesan via WhatsApp atau Marketplace, barang disiapkan, Anda tinggal ambil tanpa perlu antri lama.
+                    </p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-brand-light p-8 rounded-2xl border border-slate-100 hover:border-brand-primary/50 hover:shadow-xl hover:shadow-brand-primary/5 transition-all duration-300 group">
+                    <div class="w-14 h-14 bg-green-100 text-green-600 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i data-lucide="truck" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-brand-dark mb-3">Pengiriman Instan</h3>
+                    <p class="text-slate-600 leading-relaxed">
+                        Mager keluar? Kami menyediakan layanan pengiriman instan aman ke seluruh area Makassar.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location Section -->
+    <section id="location" class="py-20 bg-slate-50 border-t border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-3xl shadow-xl overflow-hidden border border-slate-200">
+                <div class="grid lg:grid-cols-2">
+                    
+                    <!-- Info Side -->
+                    <div class="p-8 lg:p-12 flex flex-col justify-center order-2 lg:order-1">
+                        <div class="mb-8">
+                            <span class="text-brand-primary font-semibold tracking-wider uppercase text-sm">Lokasi Kami</span>
+                            <h2 class="text-3xl font-bold text-brand-dark mt-2 mb-6">Kunjungi Store Elextra</h2>
+                            
+                            <div class="space-y-6">
+                                <div class="flex items-start gap-4">
+                                    <div class="mt-1 bg-slate-100 p-2 rounded-lg text-slate-600">
+                                        <i data-lucide="map-pin" class="w-5 h-5"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-brand-dark">Alamat</h4>
+                                        <p class="text-slate-600 mt-1">
+                                            Komp. Business Center, Panakukang Mas<br>
+                                            Jl. A.P. Pettarani Ruko Diamond No.3,<br>
+                                            Masale, Makassar, 90222
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start gap-4">
+                                    <div class="mt-1 bg-slate-100 p-2 rounded-lg text-slate-600">
+                                        <i data-lucide="clock" class="w-5 h-5"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-brand-dark">Jam Operasional</h4>
+                                        <ul class="text-slate-600 mt-1 space-y-1 text-sm">
+                                            <li class="flex justify-between w-48"><span>Senin - Jumat</span> <span class="font-medium">09:00 - 18:00</span></li>
+                                            <li class="flex justify-between w-48"><span>Sabtu</span> <span class="font-medium">09:00 - 17:00</span></li>
+                                            <li class="flex justify-between w-48 text-red-500"><span>Minggu</span> <span class="font-medium">Tutup</span></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <a href="https://www.google.com/maps/dir//Elextra+Komputer,+Komp.+Business+Center,+Panakukang+Mas,+Jl.+A.+P.+Pettarani+Ruko+Diamond+No.3,+Masale,+Panakkukang,+Makassar+City,+South+Sulawesi+90222/@-5.1567,119.435,17z" target="_blank" class="flex items-center justify-center gap-2 bg-brand-primary text-white px-6 py-3 rounded-xl font-medium hover:bg-blue-700 transition-colors">
+                                <i data-lucide="navigation" class="w-4 h-4"></i>
+                                Petunjuk Arah
+                            </a>
+                            <a href="https://linktr.ee/elextra" target="_blank" class="flex items-center justify-center gap-2 bg-white border border-slate-300 text-slate-700 px-6 py-3 rounded-xl font-medium hover:bg-slate-50 transition-colors">
+                                <i data-lucide="phone" class="w-4 h-4"></i>
+                                Hubungi Kami
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Map Side -->
+                    <div class="relative h-64 lg:h-auto min-h-[400px] order-1 lg:order-2 map-container bg-slate-200">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3973.666324675574!2d119.4328!3d-5.1567!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dbee2b7a9a9a9a9%3A0x1234567890abcdef!2sJl.+A.+P.+Pettarani+Ruko+Diamond+No.3!5e0!3m2!1sen!2sid!4v1600000000000!5m2!1sen!2sid" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade"
+                            title="Lokasi Elextra Komputer Makassar">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brand-dark text-slate-400 py-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-2">
+                <i data-lucide="cpu" class="w-6 h-6 text-brand-primary"></i>
+                <span class="text-white font-bold text-xl">Elextra</span>
+            </div>
+            <p class="text-sm text-center md:text-right">
+                &copy; <span id="year"></span> Elextra Komputer Makassar. All rights reserved.<br>
+                <span class="text-xs text-slate-600">Built for performance.</span>
+            </p>
+        </div>
+    </footer>
+
+    <!-- Logic Script -->
+    <script>
+        // Initialize Icons
+        lucide.createIcons();
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        /**
+         * Operational Status Logic
+         * Handles Timezone differences (Force Asia/Makassar)
+         */
+        const storeConfig = {
+            hours: {
+                0: null, // Sunday: Closed
+                1: { open: 9, close: 18 }, // Mon
+                2: { open: 9, close: 18 }, // Tue
+                3: { open: 9, close: 18 }, // Wed
+                4: { open: 9, close: 18 }, // Thu
+                5: { open: 9, close: 18 }, // Fri
+                6: { open: 9, close: 17 }, // Sat
+            },
+            timezone: 'Asia/Makassar'
+        };
+
+        function updateStoreStatus() {
+            // 1. Get current time in Makassar (WITA)
+            // This ensures logic is correct even if user is in Jakarta or New York
+            const now = new Date();
+            const makassarTimeStr = now.toLocaleString("en-US", { timeZone: storeConfig.timezone });
+            const makassarDate = new Date(makassarTimeStr);
+
+            const day = makassarDate.getDay(); // 0-6
+            const hour = makassarDate.getHours();
+            const minute = makassarDate.getMinutes();
+            const currentTotalMinutes = (hour * 60) + minute;
+
+            // DOM Elements
+            const badge = document.getElementById('status-badge');
+            const dot = document.getElementById('status-dot');
+            const text = document.getElementById('status-text');
+
+            // Default State: Closed
+            let isOpen = false;
+            let message = "TUTUP";
+            let colorClass = "bg-slate-100 text-slate-500 border-slate-200";
+            let dotClass = "bg-slate-400";
+
+            const todaySchedule = storeConfig.hours[day];
+
+            if (todaySchedule) {
+                const openMinutes = todaySchedule.open * 60;
+                const closeMinutes = todaySchedule.close * 60;
+
+                if (currentTotalMinutes >= openMinutes && currentTotalMinutes < closeMinutes) {
+                    // It is currently open
+                    isOpen = true;
+                    message = "BUKA SEKARANG";
+                    colorClass = "bg-green-50 text-green-700 border-green-200";
+                    dotClass = "bg-green-500 animate-pulse-slow";
+
+                    // Check if closing soon (less than 60 mins)
+                    const minutesLeft = closeMinutes - currentTotalMinutes;
+                    if (minutesLeft <= 60) {
+                        message = `TUTUP DALAM ${minutesLeft} MENIT`;
+                        colorClass = "bg-orange-50 text-orange-700 border-orange-200";
+                        dotClass = "bg-orange-500 animate-pulse";
+                    }
+                } else if (currentTotalMinutes < openMinutes) {
+                     message = `BUKA JAM ${todaySchedule.open}:00`;
+                }
+            }
+
+            // Apply Classes
+            badge.className = `flex items-center gap-2 px-3 py-1.5 rounded-full border text-sm font-medium transition-colors duration-300 ${colorClass}`;
+            dot.className = `w-2.5 h-2.5 rounded-full shadow-sm ${dotClass}`;
+            text.innerText = message;
+        }
+
+        // Run on load
+        updateStoreStatus();
+        
+        // Update every minute to keep countdown accurate
+        setInterval(updateStoreStatus, 60000);
+    </script>
+</body>
+</html>
